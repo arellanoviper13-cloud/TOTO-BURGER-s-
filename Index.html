@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Toto Burger's</title>
+<style>
+body { font-family:'Times New Roman', serif; margin:0; padding:0; background:linear-gradient(to bottom,#2c1a12,#3b2317,#1a0f0a); color:#fff; text-align:center;}
+header { background:linear-gradient(to right,#5a2d0c,#7c3e1c); padding:20px; border-bottom:5px solid gold;}
+header h1 { font-size:3em; color:gold; text-shadow:3px 3px 8px black; margin:0;}
+header p { margin:6px 0 0; color:#ffda73; font-style:italic;}
+nav { background:#4b1d0c; padding:12px; border-bottom:3px solid #d4af37;}
+nav a { color:#fff; margin:0 15px; text-decoration:none; font-weight:bold; font-size:1.2em; transition:color 0.3s;}
+nav a:hover { color:gold;}
+section { margin:20px auto; padding:20px; width:90%; max-width:900px; border-radius:12px;}
+h2 { color:gold; margin-bottom:15px; text-shadow:2px 2px 6px black;}
+.card { background:linear-gradient(to bottom,#fff8dc,#f1d28a); color:#3b2317; border:4px solid #d4af37; border-radius:12px; margin:15px auto; padding:20px; width:80%; font-weight:bold; box-shadow:4px 4px 12px rgba(0,0,0,0.5);}
+.card:hover { transform:scale(1.05); transition:0.3s;}
+.card button { margin-top:10px; padding:8px 12px; border:none; border-radius:8px; background:gold; color:#3b2317; font-weight:bold; cursor:pointer; transition:0.2s;}
+.card button:hover { background:#ffda73; transform:scale(1.05);}
+.stars { display:flex; justify-content:center; gap:10px; cursor:pointer;}
+.stars i { font-size:2.2em; color:gray; transition:color 0.3s, transform 0.2s;}
+.stars i.active,.stars i.hover { color:gold; transform:scale(1.2);}
+#ratingText { margin-top:8px;}
+footer { background:#2a1a0f; padding:20px; border-top:4px solid gold;}
+footer a { margin:0 12px; color:gold; text-decoration:none; font-size:1.5em; transition:0.3s;}
+footer a:hover { color:#ffda73;}
+#ownerSection { display:none; background:#111; border:3px solid gold; padding:20px; margin:20px auto; border-radius:12px; max-width:900px; text-align:left;}
+#loginBox { display:none; margin-top:10px;}
+#loginBox input { padding:8px; font-size:1em; border-radius:6px; border:none;}
+#loginBox button { padding:8px 12px; font-weight:bold; border:none; border-radius:6px; background:gold; cursor:pointer;}
+#ownerSection button { margin-top:10px; margin-right:5px;}
+</style>
+</head>
+<body>
+
+<header>
+<h1>🏰 Toto Burger's 🍖</h1>
+<p>Festín medieval de hamburguesas y bebidas</p>
+</header>
+
+<nav>
+<a href="#hamburguesas">Hamburguesas</a>
+<a href="#bebidas">Bebidas</a>
+<a href="#boneless">Boneless</a>
+<a href="#puntuacion">Puntuación</a>
+<a href="#eventos">Eventos</a>
+</nav>
+
+<section id="hamburguesas">
+<h2>🍔 Hamburguesas de la Taberna</h2>
+<div class="card">
+<h3>Clásica del Reino</h3>
+<p>Pan artesanal, carne 100% res, queso y vegetales frescos.</p>
+<p><b>80 Monedas de Oro</b></p>
+<button onclick="addToCart('Clásica del Reino')">Agregar al pedido</button>
+</div>
+<div class="card">
+<h3>🔥 Dragón BBQ</h3>
+<p>Carne jugosa con salsa BBQ, cebolla caramelizada y queso ahumado.</p>
+<p><b>120 Monedas de Oro</b></p>
+<button onclick="addToCart('Dragón BBQ')">Agregar al pedido</button>
+</div>
+<div class="card">
+<h3>🥓 Guerrero con Tocino</h3>
+<p>Carne doble, queso cheddar y crujiente tocino.</p>
+<p><b>130 Monedas de Oro</b></p>
+<button onclick="addToCart('Guerrero con Tocino')">Agregar al pedido</button>
+</div>
+<div class="card">
+<h3>🧀 Real de Queso</h3>
+<p>Exceso de queso derretido digno de un rey.</p>
+<p><b>110 Monedas de Oro</b></p>
+<button onclick="addToCart('Real de Queso')">Agregar al pedido</button>
+</div>
+</section>
+
+<section id="bebidas">
+<h2>🍺 Brebajes de la Taberna</h2>
+<div class="card">
+<h3>Hidromiel del Guerrero</h3>
+<p>Bebida dulce fermentada, preferida por los vikingos.</p>
+<p><b>50 Monedas de Oro</b></p>
+<button onclick="addToCart('Hidromiel del Guerrero')">Agregar al pedido</button>
+</div>
+<div class="card">
+<h3>Jugo de Elfo</h3>
+<p>Refrescante mezcla de frutas exóticas.</p>
+<p><b>40 Monedas de Oro</b></p>
+<button onclick="addToCart('Jugo de Elfo')">Agregar al pedido</button>
+</div>
+<div class="card">
+<h3>Cerveza del Enano</h3>
+<p>Oscura, fuerte y con espuma digna de un banquete enano.</p>
+<p><b>60 Monedas de Oro</b></p>
+<button onclick="addToCart('Cerveza del Enano')">Agregar al pedido</button>
+</div>
+</section>
+
+<section id="boneless">
+<h2>🍗 Boneless</h2>
+<div class="card">
+<h3>Boneless del Dragón</h3>
+<p>Jugosos trozos de pollo bañados en salsa BBQ ardiente.</p>
+<p><b>90 Monedas de Oro</b></p>
+<button onclick="addToCart('Boneless del Dragón')">Agregar al pedido</button>
+</div>
+<div class="card">
+<h3>Boneless del Guerrero</h3>
+<p>Con salsa Buffalo, picante como una espada en batalla.</p>
+<p><b>95 Monedas de Oro</b></p>
+<button onclick="addToCart('Boneless del Guerrero')">Agregar al pedido</button>
+</div>
+</section>
+
+<section id="puntuacion">
+<h2>⭐ Puntuación del Banquete</h2>
+<p>Valora tu experiencia:</p>
+<div class="stars" id="starRating">
+<i data-value="1">★</i>
+<i data-value="2">★</i>
+<i data-value="3">★</i>
+<i data-value="4">★</i>
+<i data-value="5">★</i>
+</div>
+<p id="ratingText"></p>
+</section>
+
+<section id="eventos">
+<h2>🎉 Eventos y Torneos</h2>
+<div class="card">
+<h3>Concurso de Disfraces Medievales</h3>
+<p>Ven con tu mejor traje de caballero, reina o mago y gana fabulosos premios.</p>
+</div>
+</section>
+
+<section id="ownerSection">
+<h2>📋 Pedidos de Clientes</h2>
+<ul id="orderList"></ul>
+<button onclick="clearOrders()">Vaciar pedidos</button>
+<button onclick="logout()">Cerrar sesión</button>
+</section>
+
+<footer>
+<p>Síguenos en nuestras redes sociales:</p>
+<a href="https://facebook.com" target="_blank">📘</a>
+<a href="https://instagram.com" target="_blank">📸</a>
+<a href="https://tiktok.com" target="_blank">🎵</a>
+<p>© 2025 Toto Burger's</p>
+<a href="#" id="ownerAccess">⚙️ Acceso Dueño</a>
+<div id="loginBox">
+<input type="password" id="passwordInput" placeholder="Contraseña">
+<button onclick="checkPassword()">Entrar</button>
+</div>
+</footer>
+
+<script>
+// RATING
+const stars=document.querySelectorAll("#starRating i");
+const ratingText=document.getElementById("ratingText");
+let savedRating=localStorage.getItem("rating");
+function setRating(value){stars.forEach(s=>s.classList.remove("active"));for(let i=0;i<value;i++){stars[i].classList.add("active");}ratingText.textContent=`Has calificado con ${value} estrellas.`;localStorage.setItem("rating",value);}
+if(savedRating)setRating(savedRating);
+stars.forEach(star=>{star.addEventListener("mouseover",()=>{stars.forEach(s=>s.classList.remove("hover"));for(let i=0;i<star.dataset.value;i++){stars[i].classList.add("hover");}});star.addEventListener("mouseout",()=>stars.forEach(s=>s.classList.remove("hover")));star.addEventListener("click",()=>setRating(star.dataset.value));});
+
+// OWNER LOGIN
+const ownerSection=document.getElementById("ownerSection");
+const loginBox=document.getElementById("loginBox");
+const ownerAccess=document.getElementById("ownerAccess");
+const PASSWORD="Totoburger25";
+if(localStorage.getItem("ownerAccess")==="true"){ownerSection.style.display="block"; renderOrders();}
+ownerAccess.addEventListener("click",e=>{e.preventDefault(); loginBox.style.display=loginBox.style.display==="block"?"none":"block";});
+function checkPassword(){const input=document.getElementById("passwordInput").value;if(input===PASSWORD){localStorage.setItem("ownerAccess","true");loginBox.style.display="none";ownerSection.style.display="block";renderOrders();}else{alert("Contraseña incorrecta");}}
+function logout(){localStorage.removeItem("ownerAccess");ownerSection.style.display="none";alert("Sesión cerrada");}
+
+// PEDIDOS
+function addToCart(name){const cart=JSON.parse(localStorage.getItem("cart")||"[]");cart.push({name,time:new Date().toLocaleString()});localStorage.setItem("cart",JSON.stringify(cart));alert(`${name} añadido al pedido`);renderOrders();}
+function renderOrders(){const list=document.getElementById("orderList");const orders=JSON.parse(localStorage.getItem("cart")||"[]");if(orders.length===0){list.innerHTML="<p>No hay pedidos aún.</p>";return;}let html="<ul>";orders.forEach(o=>{html+=`<li>${o.name} <small>(${o.time})</small></li>`});html+="</ul>";list.innerHTML=html;}
+function clearOrders(){if(confirm("¿Deseas vaciar todos los pedidos?")){localStorage.removeItem("cart");renderOrders();}}
+</script>
+
+</body>
+</html>
